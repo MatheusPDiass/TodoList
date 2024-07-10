@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- MENU -->
+      <div class="menu">
+        <div class="user">
+          <!-- <img src="./images/profilePic.jpg" alt="user photo" /> -->
+          <h3 class="username">John Doe</h3>
+        </div>
+        <div class="principalForm">
+          <form action="submit">
+            <label for="">Item:</label>
+            <input type="text" />
+            <label for="option">Prioridade</label>
+            <select name="option" id="option">
+              <option value="low">Baixa</option>
+              <option value="normal">Normal</option>
+              <option value="high">Alta</option>
+            </select>
+            <div class="buttons">
+              <button type="submit" class="formBtn">Salvar</button>
+              <button type="reset" class="formBtn">Limpar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="list">
+        <!-- PRINCIPAL LIST -->
+        <div class="todoList" id="todoList"></div>
+
+        <!-- DONE LIST -->
+        <div class="doneList" id="doneList"></div>
+      </div>
+
+      <script src="./index.js" type="module"></script>
+    </div>
+  </body>
+</html>
