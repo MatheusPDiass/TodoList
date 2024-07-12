@@ -1,6 +1,7 @@
-export default function newButton(text, id) {
+export default function newButton(text, classList, index) {
   const button = document.createElement("button");
   button.innerText = text;
-  button.id = id;
+  button.classList = classList;
+  button.value = index;
   return button;
 }

@@ -16,28 +16,24 @@
         <div class="principalForm">
           <form action="submit">
             <label for="">Item:</label>
-            <input type="text" />
+            <input type="text" id="cardTitle" />
             <label for="option">Prioridade</label>
-            <select name="option" id="option">
-              <option value="low">Baixa</option>
-              <option value="normal">Normal</option>
-              <option value="high">Alta</option>
+            <select name="option" id="prioOptions">
+              <option value="BAIXA">Baixa</option>
+              <option value="NORMAL">Normal</option>
+              <option value="ALTA">Alta</option>
             </select>
             <div class="buttons">
-              <button type="submit" class="formBtn">Salvar</button>
-              <button type="reset" class="formBtn">Limpar</button>
+              <button type="submit" class="saveBtn" id="saveBtn">Salvar</button>
+              <button type="reset" class="clearBtn" id="clearBtn">
+                Limpar
+              </button>
             </div>
           </form>
         </div>
       </div>
 
-      <div class="list">
-        <!-- PRINCIPAL LIST -->
-        <div class="todoList" id="todoList"></div>
-
-        <!-- DONE LIST -->
-        <div class="doneList" id="doneList"></div>
-      </div>
+      <div class="todoList" id="todoList"></div>
 
       <script src="./index.js" type="module"></script>
     </div>
