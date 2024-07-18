@@ -1,14 +1,12 @@
 import newLabel from "./label.js";
 import newButton from "./button.js";
-import DataLists from "./Data.js";
-import { clearList, renderlist } from "../index.js";
 
-const dataLists = new DataLists();
+import { clearList, renderDoneList, renderlist, dataLists } from "../index.js";
 
 export default function newCard(prio, title, index) {
   const newDiv = document.createElement("div");
   newDiv.id = "itemCard";
-  const priority = newLabel(prio, "priorityInfo");
+  const priority = newLabel(prio, `priorityInfo ${prio}`);
   const titleCard = newLabel(title, "titleInfo");
 
   const divBtn = document.createElement("div");
@@ -16,14 +14,17 @@ export default function newCard(prio, title, index) {
   const doneBtn = newButton("Feito", "doneBtn", index);
   const deleteBtn = newButton("Excluir", "deleteBtn", index);
 
-  doneBtn.addEventListener("click", () => {
+  doneBtn.addEventListener("click", (ev) => {
+    ev.preventDefault();
     dataLists.markAsDone(index);
-    console.log(dataLists.getDonelist());
     clearList();
     renderlist();
+    renderDoneList();
   });
 
+  const hr = document.createElement("hr");
+
   divBtn.append(doneBtn, deleteBtn);
-  newDiv.append(priority, titleCard, divBtn);
+  newDiv.append(priority, titleCard, divBtn, hr);
   return newDiv;
 }

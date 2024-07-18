@@ -2,10 +2,10 @@ export default class DataLists {
   constructor() {
     this.todoList = [
       { prio: "ALTA", title: "Item teste" },
-      { prio: "MEDIA", title: "Item teste 2" },
+      { prio: "NORMAL", title: "Item teste 2" },
     ];
 
-    this.doneList = [];
+    this.doneList = [{ prio: "ALTA", title: "DONELIST" }];
   }
 
   addTodoList(prio, title) {
