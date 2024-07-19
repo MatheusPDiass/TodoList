@@ -1,14 +1,23 @@
 import newCard from "./components/card.js";
 import DataLists from "./components/Data.js";
+import doneListCard from "./components/doneListCard.js";
 
-const dataLists = new DataLists();
+export const dataLists = new DataLists();
 
 export function renderlist() {
   const section = document.getElementById("todoList");
-  let i = 0;
+  let index = 0;
   dataLists.getTodoList().forEach(function (item) {
-    const itemCard = newCard(item.prio, item.title, i);
-    i++;
+    const itemCard = newCard(item.prio, item.title, index);
+    index++;
+    section.append(itemCard);
+  });
+}
+
+export function renderDoneList() {
+  const section = document.getElementById("doneList");
+  dataLists.getDonelist().forEach(function (item) {
+    const itemCard = doneListCard(item.prio, item.title);
     section.append(itemCard);
   });
 }
@@ -36,6 +45,7 @@ saveBtn.addEventListener("click", (ev) => {
   dataLists.addTodoList(prio, title);
   clearList();
   renderlist();
+  renderDoneList();
   clear();
 });
 
@@ -46,3 +56,4 @@ clearBtn.addEventListener("click", (ev) => {
 });
 
 renderlist();
+renderDoneList();

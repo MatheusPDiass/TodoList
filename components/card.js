@@ -22,9 +22,15 @@ export default function newCard(prio, title, index) {
     renderDoneList();
   });
 
-  const hr = document.createElement("hr");
+  deleteBtn.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    dataLists.deleItem(index);
+    clearList();
+    renderlist();
+    renderDoneList();
+  });
 
   divBtn.append(doneBtn, deleteBtn);
-  newDiv.append(priority, titleCard, divBtn, hr);
+  newDiv.append(priority, titleCard, divBtn);
   return newDiv;
 }
